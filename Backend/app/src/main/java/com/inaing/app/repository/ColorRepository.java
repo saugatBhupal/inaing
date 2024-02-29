@@ -3,9 +3,9 @@ package com.inaing.app.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.inaing.app.entity.Product;
+import com.inaing.app.entity.Color;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product,Long>{
+public interface ColorRepository extends JpaRepository<Color,Long>{
     
 }

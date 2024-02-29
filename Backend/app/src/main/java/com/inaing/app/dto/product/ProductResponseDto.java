@@ -1,5 +1,12 @@
 package com.inaing.app.dto.product;
 
+import java.util.List;
+import java.util.Set;
+
+import com.inaing.app.entity.Color;
+import com.inaing.app.entity.Images;
+import com.inaing.app.entity.Size;
+
 import io.micrometer.common.lang.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,4 +34,13 @@ public class ProductResponseDto {
 
     @NonNull
     private String gender;
+
+    @NonNull
+    private Set<Color> colors;
+
+    @NonNull
+    private Set<Size> sizes;
+
+    @NonNull
+    private Set<Images> images; 
 }

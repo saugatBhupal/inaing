@@ -34,8 +34,8 @@ public class ProductRequestDto {
     private String gender;
 
     @NonNull
-    private List<Color> colors;
+    private List<Long> colors;
 
     @NonNull
-    private List<Size> sizes;
+    private List<Long> sizes;
 }

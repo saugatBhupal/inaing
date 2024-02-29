@@ -11,11 +11,13 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "size")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Size {
     
     @Id
@@ -25,7 +27,5 @@ public class Size {
     private Integer number;
 
     private String sizeName;
-
-    @ManyToMany(mappedBy = "sizes")
-    private Set<Product> products = new HashSet<>();
+    
 }

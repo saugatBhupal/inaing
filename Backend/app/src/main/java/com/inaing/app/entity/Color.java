@@ -12,10 +12,12 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "color")
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Color {
     
@@ -28,7 +30,5 @@ public class Color {
     
     @NonNull
     private String code;
-    
-    @ManyToMany(mappedBy = "colors")
-    private Set<Product> products = new HashSet<>();
+
 }

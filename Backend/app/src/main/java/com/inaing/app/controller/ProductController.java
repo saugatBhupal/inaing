@@ -2,6 +2,7 @@ package com.inaing.app.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.inaing.app.dto.global.GlobalResponse;
 import com.inaing.app.dto.product.ProductRequestDto;
@@ -13,7 +14,6 @@ import lombok.AllArgsConstructor;
 import java.util.List;
 
 import org.apache.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.PutMapping;
 
 
@@ -32,9 +33,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 public class ProductController {
     private final ProductService productService;
 
-    @PostMapping("/")
-    public ResponseEntity<GlobalResponse<ProductResponseDto>> saveProductHandler(@RequestBody ProductRequestDto productRequestDto) {
-        GlobalResponse<ProductResponseDto> response = productService.save(productRequestDto);
+    @PostMapping("")
+    public ResponseEntity<GlobalResponse<ProductResponseDto>> saveProductHandler(@RequestParam("images") List<MultipartFile> images ,@RequestPart("product") ProductRequestDto productRequestDto) {
+        GlobalResponse<ProductResponseDto> response = productService.save(productRequestDto, images);
         return ResponseEntity.status(HttpStatus.SC_OK).body(response);
     }
 
@@ -44,7 +45,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.SC_OK).body(response);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<GlobalResponse<List<ProductResponseDto>>> getAllProductsHandler(){
         GlobalResponse<List<ProductResponseDto>> response = productService.getAllProducts();
         return ResponseEntity.status(HttpStatus.SC_OK).body(response);
