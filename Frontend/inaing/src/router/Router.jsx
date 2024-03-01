@@ -5,6 +5,7 @@ import AllProductsPage from '../pages/AllProductsPage'
 import ItemPage from '../pages/ItemPage'
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
+import Dashboard from '../pages/admin/Dashboard'
 
 function Router() {
   return (
@@ -20,6 +21,8 @@ function Router() {
             <Route path='/accessories' element = {<AllProductsPage type={"Accessories"}/>}/>
             <Route path='/cosmetics' element = {<AllProductsPage type={"Cosmetics"}/>}/>
             <Route path='/item' element = {<ItemPage/>}/>
+            {/* Admin Section */}
+            <Route path='/admin/home' element ={<Dashboard/>}/>
         </Routes>
     </BrowserRouter>
   )

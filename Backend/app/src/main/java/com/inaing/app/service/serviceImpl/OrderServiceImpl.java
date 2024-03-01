@@ -1,5 +1,6 @@
 package com.inaing.app.service.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -22,11 +23,12 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Order save(List<CartItemRequestDto> items) {
         Order order = repository.save(new Order());
+        List<CartItem> items2 = new ArrayList<>();
         for(CartItemRequestDto item : items){
-            cartItemService.save(item, order.getId());
+            items2.add(cartItemService.save(item, order));
         }
-        return repository.save(order);
-        
+        order.setCartItems(items2);
+        return(repository.save(order));
     }
 
     @Override

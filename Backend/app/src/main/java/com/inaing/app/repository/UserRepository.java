@@ -12,7 +12,7 @@ import com.inaing.app.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long>{
 
-    @Query(value = "SELECT * FROM user WHERE email = :login OR mobile = :login", nativeQuery = true)
+    @Query(value = "SELECT * FROM users WHERE email = :login OR mobile = :login", nativeQuery = true)
     Optional<User> findByEmailOrMobile(@Param("login") String login);
     
 }

@@ -1,7 +1,5 @@
 package com.inaing.app.exception;
 
-import org.apache.http.HttpStatus;
-
 public class GlobalException extends RuntimeException{
     private final int status;
 

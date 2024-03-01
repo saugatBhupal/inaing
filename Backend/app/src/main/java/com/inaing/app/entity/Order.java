@@ -2,6 +2,8 @@ package com.inaing.app.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +28,8 @@ public class Order {
 
     private Double cost;
 
-    @OneToMany
+    @OneToMany(mappedBy = "_order")
+    @JsonManagedReference(value = "order-cart")
     private List<CartItem> cartItems;
     
 }

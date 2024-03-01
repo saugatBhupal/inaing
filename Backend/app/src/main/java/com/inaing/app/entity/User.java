@@ -8,8 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import io.micrometer.common.lang.NonNull;
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +24,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

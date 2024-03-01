@@ -38,7 +38,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public GlobalResponse<UserDtoWithToken> login(AuthRequestDto authRequestDto) {
         try{
-            User user = repository.findByEmailOrMobile(authRequestDto.getLogin()).orElseThrow(() -> new GlobalException("User assosciated to this username could not be found", HttpStatus.SC_UNAUTHORIZED));
+            User user = repository.findByEmailOrMobile(authRequestDto.getLogin()).orElseThrow
+            (() -> new GlobalException("User assosciated to this username could not be found",HttpStatus.SC_UNAUTHORIZED));
             if(!authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequestDto.getLogin(), authRequestDto.getPassword())).isAuthenticated()) 
             throw new GlobalException("Invalid Password.", HttpStatus.SC_UNAUTHORIZED);
             System.out.println(authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequestDto.getLogin(), authRequestDto.getPassword())).isAuthenticated());

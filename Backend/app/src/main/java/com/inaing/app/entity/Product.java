@@ -50,7 +50,7 @@ public class Product {
     @NonNull
     private String gender;
 
-    @NonNull
+    // @NonNull
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
         name = "Product_Color",
@@ -59,7 +59,7 @@ public class Product {
     )
     private Set<Color> colors;
 
-    @NonNull
+    // @NonNull
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
         name = "Product_Size",
@@ -68,7 +68,7 @@ public class Product {
     )
     private Set<Size> sizes;
 
-    @NonNull
+    // @NonNull
     @OneToMany(orphanRemoval = true ,cascade = {CascadeType.ALL}, mappedBy = "product")
     @JsonManagedReference(value = "product-image")
     private List<Images> images;

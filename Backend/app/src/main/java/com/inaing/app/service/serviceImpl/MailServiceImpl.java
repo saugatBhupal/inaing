@@ -17,7 +17,7 @@ public class MailServiceImpl implements MailService{
     private void sendMail(String to, String subject, String body){
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
-        message.setFrom("Instagram@sbhupal.com.np");
+        message.setFrom("Inaing@sbhupal.com.np");
         message.setSubject(subject);
         message.setText(body);
         System.out.println(message.getText());

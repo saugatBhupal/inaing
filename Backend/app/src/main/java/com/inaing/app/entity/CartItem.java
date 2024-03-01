@@ -1,5 +1,8 @@
 package com.inaing.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.val;
 
 @Entity
 @Table(name = "cartItem")
@@ -22,8 +26,10 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     private Integer quantity;
 
+    @NonNull
     private Double cost;
 
     @ManyToOne
@@ -39,6 +45,8 @@ public class CartItem {
     private Product product;
 
     @ManyToOne
-    private Order order;
+    @JoinColumn(name = "orderID")
+    @JsonBackReference(value = "order-cart")
+    private Order _order;
 
 }

@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class CartItemRequestDto {
-
+    
     private Integer quantity;
 
     private Double cost;

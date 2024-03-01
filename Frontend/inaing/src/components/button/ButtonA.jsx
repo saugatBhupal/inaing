@@ -14,9 +14,9 @@ const Button = styled.button`
     color : #ffffff;
   }
 `
-function ButtonA({text}) {
+function ButtonA({text}, {onClick}) {
   return (
-    <Button>{text}</Button>
+    <Button onClick={()=>{onClick()}}>{text}</Button>
   )
 }
 
